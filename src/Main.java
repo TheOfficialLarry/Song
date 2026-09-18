@@ -1,32 +1,27 @@
+
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Song firstSong = new Song(
-                "Espresso",
-                "Saprina Carpenter",
-                175
-        );
 
-        Song secondSong = new Song(
-                "Birds of a Feather",
-                "Billie Eilish",
-                211
-        );
+        ArrayList<Song> songs = new ArrayList<>();
 
-        firstSong.printInfo();
-        secondSong.printInfo();
+        songs.add(new Song("Espresso", "Sabrina Carpenter", 175));
+        songs.add(new Song("Birds of a Feather", "Billie Eilish", 211));
+        songs.add(new Song("Born in the USA", "Bruce Springsteen", 284));
+        songs.add(new Song("Wrecking Ball", "Miley Cyrus", 222));
 
-        System.out.println("Ursprunglig längd: " + firstSong.getDurationSeconds());
+        System.out.println("Antal låtar: " + songs.size());
 
-        firstSong.setDurationSeconds(160);
-        System.out.println("Efter giltig ändring: " + firstSong.getDurationSeconds());
+        for (Song song : songs) {
+            System.out.println(song);
+        }
 
-        firstSong.setDurationSeconds(-10);
-        System.out.println("Efter ogiltig ändring: " + firstSong.getDurationSeconds());
-
-        if (firstSong.isLongSong()) {
-            System.out.println("Lång låt");
-        } else {
-            System.out.println("Kortare än fyra minuter");
+        System.out.println("\nLåtar som är längre än 4 minuter:");
+        for (Song song : songs) {
+            if (song.isLongSong()) {
+                System.out.println(song);
+            }
         }
     }
-}
+    }

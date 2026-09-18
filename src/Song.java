@@ -24,13 +24,19 @@ public class Song {
         if (durationSeconds > 0) {
             this.durationSeconds = durationSeconds;
         }
-    }
-
-    public void printInfo() {
-        System.out.println(title + " - " + artist + " (" + durationSeconds + " sekunder)");
-    }
-
-    public boolean isLongSong() {
+        }
+        @Override
+    public String toString() {
+        return "\nLåt: " + title + "\nArtist: " + artist + "\nLåtens längd:" + durationSeconds;
+        }
+        public boolean isLongSong(){
         return durationSeconds >= 240;
+        }
     }
-}
+
+
+
+
+
+
+
